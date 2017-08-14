@@ -12,7 +12,7 @@ class Header extends Component {
   render() {
     return (
       <nav>
-        <div class="nav-wrapper">
+        <div className="nav-wrapper">
           <a href="#" className="left brand-logo">
             EmailMachine
           </a>
