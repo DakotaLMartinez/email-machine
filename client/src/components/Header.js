@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class Header extends Component {
   // add a constructor for state using 'reactstate'
-  //static propTypes = {
-  //  stringProp: PropTypes.string.isRequired,
-  //  arrayProp: PropTypes.array.isRequired,
-  //  funcProp: PropTypes.func.isRequired
-  //};
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return (
+          <li>
+            <a href="/auth/google">Login With Google</a>
+          </li>
+        );
+      default:
+        return (
+          <li>
+            <a>Logout</a>
+          </li>
+        );
+    }
+  }
 
   render() {
     return (
@@ -17,9 +31,7 @@ class Header extends Component {
             EmailMachine
           </a>
           <ul id="nav-mobile" className="right">
-            <li>
-              <a>Log In With Google</a>
-            </li>
+            {this.renderContent()}
           </ul>
         </div>
       </nav>
@@ -27,6 +39,8 @@ class Header extends Component {
   }
 }
 
-// for docs on prop type validations type `reactvalidateproptypedocs`
+function mapStateToProps({ auth }) {
+  return { auth };
+}
 
-export default Header;
+export default connect(mapStateToProps)(Header);
