@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   // add a constructor for state using 'reactstate'
@@ -27,9 +28,12 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <a href="#" className="left brand-logo">
+          <Link
+            to={this.props.auth ? '/surveys' : '/'}
+            className="left brand-logo"
+          >
             EmailMachine
-          </a>
+          </Link>
           <ul id="nav-mobile" className="right">
             {this.renderContent()}
           </ul>
