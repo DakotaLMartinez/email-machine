@@ -4,5 +4,7 @@ module.exports = {
   googleClientSecret: process.env.GOOLE_CLIENT_SECRET,
   mongoURI: process.env.MONGO_URI,
   cookieKey: process.env.COOKIE_KEY,
-  googleRedirectURI: process.env.GOOGLE_REDIRECT_URI
+  googleRedirectURI: process.env.GOOGLE_REDIRECT_URI,
+  stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+  stripeSecretKey: process.env.STRIPE_SECRET_KEY
 };
